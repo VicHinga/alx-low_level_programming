@@ -5,9 +5,8 @@
  * @accept: input
  * Return: Always 0 (Success)
  */
-unsigned int _strspn(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
-	unsigned int n = 0;
 	int r;
 
 	while (*s)
@@ -15,14 +14,10 @@ unsigned int _strspn(char *s, char *accept)
 		for (r = 0; accept[r]; r++)
 		{
 			if (*s == accept[r])
-			{
-				n++;
-				break;
-			}
-			else if (accept[r + 1] == '\0')
-				return (n);
+				return (s);
 		}
 		s++;
 	}
-	return (n);
+	return ('\0');
+	
 }
